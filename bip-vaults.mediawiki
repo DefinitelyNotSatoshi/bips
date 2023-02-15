@@ -68,15 +68,20 @@ key winds up being ''too'' highly secure.
 
 Institutional custodians of Bitcoin would likely use vaults in similar fashion.
 
-===== Avoiding the $5 wrench attack =====
+===== Avoiding $5 wrench and Evil Maid attacks =====
 
-This proposal uniquely provides a solution to the 
-[https://web.archive.org/web/20230210123933/https://xkcd.com/538/ "$5 wrench attack."] By
+This proposal uniquely provides a solution to both the 
+[https://web.archive.org/web/20230210123933/https://xkcd.com/538/ "$5 wrench"] and [https://encyclopedia.kaspersky.com/glossary/evil-maid/ "Evil Maid"] attacks. In a 5$ wrench attack, by
 setting the spend delay to, say, a week, and using as the recovery path a
 script that enforces a longer relative timelock, the owner of the vault can
-prove that he is unable to access its value immediately. To the author's
-knowledge, this is the only way to configure this defense without rolling
-timelocked coins for perpetuity or relying on a trusted third party.
+prove that he is unable to access its value immediately.
+
+Likewise, in an Evil Maid attack by an unscrupulous hardware wallet provider, 
+a user monitoring the blockchain is able to observe the suspect OP_UNVAULT 
+transaction and initiate an immediate sweep of funds to their highly secure 
+recovery path. To the author's knowledge, this is the only way to configure 
+these defenses without rolling timelocked coins for perpetuity or relying 
+on a trusted third party.
 
 == Goals ==
 
